@@ -1,139 +1,30 @@
 :root {
   --primary: #2d6a4f;
-  --secondary: #95d5b2;
-  --accent: #ffb4a2;
   --dark: #1b4332;
-  --light: #f8f9fa;
   --white: #ffffff;
-  --shadow: 0 10px 25px rgba(0,0,0,0.05);
+  --gray: #f4f4f4;
 }
 
-body {
-  margin: 0;
-  font-family: 'Outfit', sans-serif;
-  background-color: var(--light);
-  color: var(--dark);
-}
+body { font-family: 'Outfit', sans-serif; margin: 0; background: var(--gray); }
 
-/* Navegación y Stepper */
-.navbar {
-  background: var(--white);
-  padding: 1rem;
-  box-shadow: var(--shadow);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
+.navbar { background: var(--white); padding: 1rem; position: sticky; top: 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 100; }
+.nav-content { display: flex; justify-content: space-between; max-width: 800px; margin: auto; }
+.stepper { display: flex; justify-content: center; gap: 10px; margin-top: 10px; font-size: 10px; }
+.step-item.active { color: var(--primary); font-weight: bold; border-bottom: 2px solid var(--primary); }
 
-.nav-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 800px;
-  margin: 0 auto;
-}
+.container { max-width: 600px; margin: 2rem auto; padding: 1rem; }
+.grid-restaurantes, .grid-platos { display: grid; gap: 1rem; }
+.card-rest, .plato-card { background: white; padding: 1rem; border-radius: 15px; cursor: pointer; }
+.card-rest img { width: 100%; border-radius: 10px; }
 
-.brand {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--primary);
-}
+.btn-back { background: none; border: none; color: var(--primary); cursor: pointer; margin-bottom: 1rem; }
+.btn-main, .btn-buy { background: var(--primary); color: white; border: none; padding: 1rem; width: 100%; border-radius: 10px; cursor: pointer; margin-top: 1rem; }
 
-.brand span { color: var(--secondary); }
+/* MODAL */
+.modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; }
+.modal-content { background: white; width: 80%; max-width: 400px; margin: 10% auto; padding: 2rem; border-radius: 20px; }
+.modal-header { display: flex; justify-content: space-between; align-items: center; }
 
-.stepper {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-.step-item {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  font-weight: 700;
-  color: #ccc;
-}
-
-.step-item.active { color: var(--primary); border-bottom: 2px solid var(--primary); }
-
-/* Layout */
-.container {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 0 1rem;
-}
-
-.view { animation: fadeIn 0.3s ease; }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-/* Cards de Restaurantes */
-.grid-restaurantes {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1.5rem;
-}
-
-.card-rest {
-  background: var(--white);
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  transition: transform 0.2s;
-  cursor: pointer;
-  border: none;
-}
-
-.card-rest:hover { transform: translateY(-5px); }
-
-.card-rest img { width: 100%; height: 150px; object-fit: cover; }
-
-.card-info { padding: 1.25rem; }
-
-/* Botones */
-.btn-main, .btn-buy {
-  background: var(--primary);
-  color: var(--white);
-  border: none;
-  padding: 1rem 2rem;
-  border-radius: 50px;
-  font-weight: 700;
-  cursor: pointer;
-  width: 100%;
-}
-
-.btn-buy { background: var(--dark); font-size: 1.2rem; }
-
-/* Formulario */
-.card-form {
-  background: var(--white);
-  padding: 2rem;
-  border-radius: 20px;
-  box-shadow: var(--shadow);
-}
-
-.field { margin-bottom: 1.5rem; }
-.field label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
-.field input, .field textarea {
-  width: 100%;
-  padding: 0.8rem;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-}
-
-/* Ticket de resumen */
-.ticket {
-  background: #fff;
-  padding: 1.5rem;
-  border-radius: 10px;
-  border-left: 5px solid var(--primary);
-  list-style: none;
-}
-
-.total-bar {
-  display: flex;
-  justify-content: space-between;
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin: 1.5rem 0;
-}
+/* PAGOS */
+.payment-options { display: flex; flex-direction: column; gap: 10px; margin-bottom: 1rem; }
+.pay-option { background: white; padding: 1rem; border-radius: 10px; display: flex; gap: 10px; border: 1px solid #ddd; }
